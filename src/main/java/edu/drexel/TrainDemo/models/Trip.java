@@ -5,46 +5,66 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "trip")
 public class Trip {
+
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String headsign;
 
-	@Column(name = "headsign")
-	private String headSign;
+	@Column(name = "route_id")
+	private Long route;
 
-	// TO-DO: direction datatype?
-	// private Direction direction;
+	@Column(name = "calendar_id")
+	private Long calendar;
+	private Long direction;
 
-	@ManyToOne
-	private Route route;
+	public Long getRoute() {
+		return route;
+	}
 
-	@ManyToOne
-	private Calendar calendar;
+	public void setRoute(Long route) {
+		this.route = route;
+	}
 
-	protected Trip() {
+	public Long getCalendar() {
+		return calendar;
+	}
 
+	public void setCalendar(Long calendar) {
+		this.calendar = calendar;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getHeadSign() {
-		return headSign;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Route getRoute() {
-		return route;
+	public String getHeadsign() {
+		return headsign;
 	}
 
-	public Calendar getCalendar() {
-		return calendar;
+	public void setHeadsign(String headsign) {
+		this.headsign = headsign;
 	}
+
+	public Long getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Long direction) {
+		this.direction = direction;
+	}
+
+	@Override
+	public String toString() {
+		return "Trip [id=" + id + ", headsign=" + headsign + ", direction=" + direction + ", route_id=" + route
+				+ ", calendar_id=" + calendar + "]";
+	}
+
 }

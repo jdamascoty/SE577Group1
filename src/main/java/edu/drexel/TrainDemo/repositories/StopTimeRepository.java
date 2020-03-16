@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import edu.drexel.TrainDemo.models.StopTime;
+import edu.drexel.TrainDemo.models.StopTimeComposite;
 
-public interface StopTimeRepository extends CrudRepository<StopTime, Long> {
-	List<StopTime> findByStopId(long stopId);
+public interface StopTimeRepository extends CrudRepository<StopTime, StopTimeComposite> {
+	List<StopTime> findByStopId(String fromStop);
 
-	List<StopTime> findByTripId(long tripId);
+	List<StopTime> findByStopIdAndTripId(String fromStop, Long tripId);
 }

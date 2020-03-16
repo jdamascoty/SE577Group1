@@ -1,5 +1,8 @@
 package edu.drexel.TrainDemo.models;
 
+import java.sql.Date;
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,63 +15,141 @@ import javax.persistence.Table;
 public class Calendar {
 
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private boolean monday;
+	private boolean tuesday;
+	private boolean wednesday;
+	private boolean thursday;
+	private boolean friday;
+	private boolean saturday;
+	private boolean sunday;
 
-	@Column(name = "monday")
-	private Boolean monAvailability;
+	@Column(name = "start_date")
+	private Date start_date;
 
-	@Column(name = "tuesday")
-	private Boolean tuesAvailability;
-
-	@Column(name = "wednesday")
-	private Boolean wedAvailability;
-
-	@Column(name = "thursday")
-	private Boolean thursAvailability;
-
-	@Column(name = "friday")
-	private Boolean friAvailability;
-
-	@Column(name = "saturday")
-	private Boolean satAvailability;
-
-	@Column(name = "sunday")
-	private Boolean sunAvailability;
-
-	private String startDate;
-	private String endDate;
+	@Column(name = "end_date")
+	private Date end_date;
 
 	public Long getId() {
 		return id;
 	}
 
-	public Boolean getMonAvailability() {
-		return monAvailability;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Boolean getTuesAvailability() {
-		return tuesAvailability;
+	public boolean isMonday() {
+		return monday;
 	}
 
-	public Boolean getWedAvailability() {
-		return wedAvailability;
+	public void setMonday(boolean monday) {
+		this.monday = monday;
 	}
 
-	public Boolean getThursAvailability() {
-		return thursAvailability;
+	public boolean isTuesday() {
+		return tuesday;
 	}
 
-	public Boolean getFriAvailability() {
-		return friAvailability;
+	public void setTuesday(boolean tuesday) {
+		this.tuesday = tuesday;
 	}
 
-	public Boolean getSatAvailability() {
-		return satAvailability;
+	public boolean isWednesday() {
+		return wednesday;
 	}
 
-	public Boolean getSunAvailability() {
-		return sunAvailability;
+	public void setWednesday(boolean wednesday) {
+		this.wednesday = wednesday;
 	}
+
+	public boolean isThursday() {
+		return thursday;
+	}
+
+	public void setThursday(boolean thursday) {
+		this.thursday = thursday;
+	}
+
+	public boolean isFriday() {
+		return friday;
+	}
+
+	public void setFriday(boolean friday) {
+		this.friday = friday;
+	}
+
+	public boolean isSaturday() {
+		return saturday;
+	}
+
+	public void setSaturday(boolean saturday) {
+		this.saturday = saturday;
+	}
+
+	public boolean isSunday() {
+		return sunday;
+	}
+
+	public void setSunday(boolean sunday) {
+		this.sunday = sunday;
+	}
+
+	public Date getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+
+	public Date getEnd_date() {
+		return end_date;
+	}
+
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
+	}
+
+	public boolean isDay(String day) {
+		if (day.equals("sunday")) {
+			return sunday;
+		} else if (day.equals("monday")) {
+			return monday;
+		} else if (day.equals("tuesday")) {
+			return tuesday;
+		} else if (day.equals("wednesday")) {
+			return wednesday;
+		} else if (day.equals("thursday")) {
+			return thursday;
+		} else if (day.equals("friday")) {
+			return friday;
+		} else if (day.equals("saturday")) {
+			return saturday;
+		} else
+			return false;
+
+	}
+
+	@Override
+	public String toString() {
+		return "Calendar [id=" + id + ", monday=" + monday + ", tuesday=" + tuesday + ", wednesday=" + wednesday
+				+ ", thursday=" + thursday + ", friday=" + friday + ", saturday=" + saturday + ", sunday=" + sunday
+				+ ", start_date=" + start_date + ", end_date=" + end_date + "]";
+	}
+
+	public ArrayList<Boolean> valueListOfDays() {
+		ArrayList<Boolean> list = new ArrayList<Boolean>();
+		list.add(sunday);
+		list.add(monday);
+		list.add(tuesday);
+		list.add(wednesday);
+		list.add(thursday);
+		list.add(friday);
+		list.add(saturday);
+		;
+
+		return list;
+	}
+
 }

@@ -1,10 +1,11 @@
 package edu.drexel.TrainDemo.repositories;
 
-import edu.drexel.TrainDemo.models.Route;
-import org.springframework.data.repository.CrudRepository;
-
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
+import edu.drexel.TrainDemo.models.Route;
+
 public interface RouteRepository extends CrudRepository<Route, Long> {
-    List<Route> findByAgency_Id(long agencyId);
+	List<Route> findByAgencyId(long agencyId);
 }
