@@ -11,7 +11,7 @@ import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
 
-import edu.drexel.TrainDemo.data.PayPalOrderData;
+import edu.drexel.TrainDemo.models.PayPalOrderData;
 import edu.drexel.TrainDemo.service.PayPalService;
 
 @Controller

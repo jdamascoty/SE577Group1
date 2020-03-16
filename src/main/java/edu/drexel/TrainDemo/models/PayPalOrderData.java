@@ -1,4 +1,4 @@
-package edu.drexel.TrainDemo.data;
+package edu.drexel.TrainDemo.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
