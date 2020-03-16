@@ -1,5 +1,6 @@
 # Train Demo
 
+<<<<<<< HEAD
 Train Demo is a web application that simulates planning a trip and purchasing tickets for a train or bus ride. It uses real Amtrak data retrieved via a [FOIA request](https://www.muckrock.com/foi/united-states-of-america-10/machine-readable-amtrak-schedules-fares-and-stoproute-alignments-25904/). The majority of this application is unimplemented and left as an exercise.
 
 ## Getting Started
@@ -79,3 +80,9 @@ To complete this application, you will have to introduce many new terms to descr
 ## Integration
 
 To complete the above use cases, your system will have to integrate with many existing systems. For authorization, you will have to integrate with (multiple) OAuth2 providers. For processing payments, you will have to integrate with a credit card processor (such as Strip) and PayPal. (You could even support Venmo, cryptocurrencies, or mail-in-checks.) To provide attractions near destinations, you will need to integrate with something like Google Maps or Yelp. You should not expect these services to always to be online or fully functional. Your system should gracefully handle outages and unexpected behavior.
+=======
+# SE577Group1
+Repository for group project in SE577
+
+Checkout may be accessed through [http://localhost:8080/checkout](http://localhost:8080/checkout). Paypal Integration has been added for this.
+>>>>>>> origin
