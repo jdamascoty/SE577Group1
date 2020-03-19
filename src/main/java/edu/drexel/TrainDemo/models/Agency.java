@@ -1,6 +1,5 @@
 package edu.drexel.TrainDemo.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +13,7 @@ public class Agency {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	@Column(name = "name")
 	private String name;
-
-	@Column(name = "external_url")
 	private String externalUrl;
 
 	protected Agency() {

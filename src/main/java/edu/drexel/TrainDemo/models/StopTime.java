@@ -12,10 +12,8 @@ public class StopTime {
 	@Id
 	@Column(name = "stop_id")
 	private String stopId;
-
 	@Column(name = "trip_id")
 	private Long tripId;
-
 	@Column(name = "stop_sequence")
 	private int stopSequence;
 

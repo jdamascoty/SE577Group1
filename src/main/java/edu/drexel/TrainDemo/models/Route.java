@@ -1,10 +1,10 @@
 package edu.drexel.TrainDemo.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,21 +12,14 @@ import javax.persistence.Table;
 public class Route {
 
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	@Column(name = "name")
 	private String name;
-
-	@Column(name = "route_type")
-	private Long routeType;
-
-	@Column(name = "external_url")
+	private RouteType routeType;
 	private String externalUrl;
 
-	@Column(name = "agency_id")
-	private Long agencyId;
+	@ManyToOne
+	private Agency agency;
 
 	protected Route() {
 	}
@@ -39,7 +32,7 @@ public class Route {
 		return name;
 	}
 
-	public Long getRouteType() {
+	public RouteType getRouteType() {
 		return routeType;
 	}
 
@@ -47,33 +40,13 @@ public class Route {
 		return externalUrl;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setRouteType(Long routeType) {
-		this.routeType = routeType;
-	}
-
-	public void setExternalUrl(String externalUrl) {
-		this.externalUrl = externalUrl;
-	}
-
-	public Long getAgencyId() {
-		return agencyId;
-	}
-
-	public void setAgencyId(Long agencyId) {
-		this.agencyId = agencyId;
+	public Agency getAgency() {
+		return agency;
 	}
 
 	@Override
 	public String toString() {
 		return "Route{" + "id=" + id + ", name='" + name + '\'' + ", routeType=" + routeType + ", externalUrl='"
-				+ externalUrl + '\'' + ", agencyId=" + agencyId + '}';
+				+ externalUrl + '\'' + ", agency=" + agency + '}';
 	}
 }

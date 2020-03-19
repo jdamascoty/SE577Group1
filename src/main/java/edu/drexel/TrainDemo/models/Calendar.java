@@ -24,10 +24,8 @@ public class Calendar {
 	private boolean friday;
 	private boolean saturday;
 	private boolean sunday;
-
 	@Column(name = "start_date")
 	private Date start_date;
-
 	@Column(name = "end_date")
 	private Date end_date;
 

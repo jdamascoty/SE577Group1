@@ -13,10 +13,8 @@ public class Trip {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String headsign;
-
 	@Column(name = "route_id")
 	private Long route;
-
 	@Column(name = "calendar_id")
 	private Long calendar;
 	private Long direction;
