@@ -6,6 +6,8 @@ Added.
 ### Display Progress
 Added. 
 
+
+
 ### Checkout Progress
 Files necessary to access PayPal to checkout has been added. A prototype for the webpage of the checkout can be accessed through the Checkout tab in the navigation bar (which can only be accessed when logged in). 
 
