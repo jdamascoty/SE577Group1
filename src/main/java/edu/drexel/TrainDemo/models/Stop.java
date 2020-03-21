@@ -60,4 +60,5 @@ public class Stop {
 		return "Stop [id=" + id + ", name=" + name + ", externalUrl=" + externalUrl + ", lat=" + lat + ", lon=" + lon
 				+ "]";
 	}
+	
 }

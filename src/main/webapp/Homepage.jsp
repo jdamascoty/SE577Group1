@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,13 +14,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
-    <link rel="stylesheet" href="css/style.css"/>    
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>    
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.js"></script>	
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		
+		$(document).ready(function() {
+	    $('.form-control').select2();
+		});
 		function toggler(val)
 		{			
 			if(val==1)
@@ -49,6 +56,7 @@
 		$('#returnDate').attr('min', maxDate);
 		$('#departure').attr('min', maxDate);
 	}
+	
 		
 	</script>
 </head>
@@ -64,23 +72,19 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="ml-auto nav-item authenticated dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="profile-name" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false"></a>
-                <div class="dropdown-menu" aria-labelledby="profile-name">
-                    <a class="dropdown-item" href="#" onclick="logout()">Sign Out</a>
-                </div>
-            </li>
             <li class="ml-auto nav-item unauthenticated">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#signInModal">Sign In</a>
             </li>
             
             <li class="ml-auto nav-item authenticated">
                 <a class="nav-link" href="/checkout">Checkout</a>
+            </li>
+            <li class="ml-auto nav-item authenticated dropdown">
+                    <a class="nav-link" href="#" onclick="logout()">Sign Out</a>
             </li>
             
         </ul>
@@ -113,16 +117,24 @@
 			<tr>
 			<td>From</td>
 			<td>
-				<div class="autocomplete" style="width:300px;">
-				<input type="text" class="form-control" id="origin" placeholder="Origin" name="origin">
-				</div>
+				<input type="text" class="form-control" id="origin" placeholder="Origin" name="origin" list="listOfStops">
+				<datalist id="listOfStops">
+  					<c:forEach items="${listStopNames}" var="StopName">
+					<option value="${StopName}">
+					</c:forEach>
+				</datalist>  
 			</td>
 			</tr>
 			
 			<tr>
 			<td>To</td>
 			<td>
-				<input type="text" class="form-control" id="destination" placeholder="Destination" name="destination">
+				<input type="text" class="form-control" id="destination" placeholder="Destination" name="destination" list="listOfStops">
+				<datalist id="listOfStops">
+  					<c:forEach items="${listStopNames}" var="StopName">
+					<option value="${StopName}">
+					</c:forEach>
+				</datalist>  
 			</td>
 			</tr>
 			<tr>
@@ -144,7 +156,7 @@
 			</tr>
 			<tr>
 			<td>
-			<input class="btn btn-primary" type="submit" value="Search">
+			<input class="btn btn-primary" type="submit" value="Search" onclick="printStops();">
 			</td>
 			</tr>
 		   </table>

@@ -43,7 +43,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         
@@ -59,6 +59,7 @@
 	<tr>
 	
 		<% 
+			
 			List<StopTimeResultSet> list = (List<StopTimeResultSet>)request.getAttribute("resultSet");
 			if(list==null){
 				out.print("<h5 align='center'>No Available routes</h5>");
